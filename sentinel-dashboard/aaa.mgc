@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ClassDiagram>
+    <Class
+        name="com.alibaba.csp.sentinel.dashboard.rule.redis.IRedisPublisher"
+        x="650" y="92">
+        <AttributesDisplayFilter public-accepted="true"
+            private-accepted="true" protected-accepted="true"
+            default-accepted="true" static-accepted="false"/>
+        <MethodDisplayFilter public-accepted="true"
+            private-accepted="false" protected-accepted="false"
+            default-accepted="false" static-accepted="false"
+            accessors-accepted="false" constructors-accepted="false"/>
+    </Class>
+    <Class
+        name="com.alibaba.csp.sentinel.dashboard.rule.redis.publisher.FlowRuleRedisPublisher"
+        x="-12" y="398">
+        <AttributesDisplayFilter public-accepted="true"
+            private-accepted="true" protected-accepted="true"
+            default-accepted="true" static-accepted="true"/>
+        <MethodDisplayFilter public-accepted="true"
+            private-accepted="true" protected-accepted="true"
+            default-accepted="true" static-accepted="true"
+            accessors-accepted="true" constructors-accepted="true"/>
+        <Association
+            destinationClassName="com.alibaba.csp.sentinel.dashboard.rule.redis.IRedisPublisher"
+            endpointName="redisPublisher" kind="Simple"/>
+        <Communication destinationClassName="com.alibaba.csp.sentinel.dashboard.rule.redis.IRedisPublisher"/>
+    </Class>
+    <Class
+        name="com.alibaba.csp.sentinel.dashboard.rule.redis.RedisConfig"
+        x="1043" y="361">
+        <AttributesDisplayFilter public-accepted="true"
+            private-accepted="true" protected-accepted="true"
+            default-accepted="true" static-accepted="true"/>
+        <MethodDisplayFilter public-accepted="true"
+            private-accepted="true" protected-accepted="true"
+            default-accepted="true" static-accepted="true"
+            accessors-accepted="true" constructors-accepted="true"/>
+        <Communication destinationClassName="com.alibaba.csp.sentinel.dashboard.rule.redis.RedisUtil1"/>
+    </Class>
+    <Class
+        name="com.alibaba.csp.sentinel.dashboard.rule.redis.RedisConfigUtil"
+        x="1044" y="263">
+        <AttributesDisplayFilter public-accepted="true"
+            private-accepted="true" protected-accepted="true"
+            default-accepted="true" static-accepted="false"/>
+        <MethodDisplayFilter public-accepted="true"
+            private-accepted="false" protected-accepted="false"
+            default-accepted="false" static-accepted="false"
+            accessors-accepted="false" constructors-accepted="false"/>
+    </Class>
+    <Class
+        name="com.alibaba.csp.sentinel.dashboard.rule.redis.publisher.DegradeRuleRedisPublisher"
+        x="-10" y="111">
+        <AttributesDisplayFilter public-accepted="true"
+            private-accepted="true" protected-accepted="true"
+            default-accepted="true" static-accepted="false"/>
+        <MethodDisplayFilter public-accepted="true"
+            private-accepted="false" protected-accepted="false"
+            default-accepted="false" static-accepted="false"
+            accessors-accepted="false" constructors-accepted="false"/>
+        <Association
+            destinationClassName="com.alibaba.csp.sentinel.dashboard.rule.redis.IRedisPublisher"
+            endpointName="redisPublisher" kind="Simple"/>
+        <Communication destinationClassName="com.alibaba.csp.sentinel.dashboard.rule.redis.IRedisPublisher"/>
+    </Class>
+    <Class
+        name="com.alibaba.csp.sentinel.dashboard.rule.redis.RedisUtil1"
+        x="1050" y="186">
+        <AttributesDisplayFilter public-accepted="true"
+            private-accepted="true" protected-accepted="true"
+            default-accepted="true" static-accepted="false"/>
+        <MethodDisplayFilter public-accepted="true"
+            private-accepted="false" protected-accepted="false"
+            default-accepted="false" static-accepted="false"
+            accessors-accepted="false" constructors-accepted="false"/>
+    </Class>
+    <Class
+        name="com.alibaba.csp.sentinel.dashboard.datasource.entity.ApplicationEntity"
+        x="674" y="402">
+        <AttributesDisplayFilter public-accepted="true"
+            private-accepted="true" protected-accepted="true"
+            default-accepted="true" static-accepted="false"/>
+        <MethodDisplayFilter public-accepted="true"
+            private-accepted="false" protected-accepted="false"
+            default-accepted="false" static-accepted="false"
+            accessors-accepted="false" constructors-accepted="false"/>
+    </Class>
+    <Class
+        name="com.alibaba.csp.sentinel.dashboard.datasource.entity.rule.AbstractRuleEntity"
+        x="441" y="528">
+        <AttributesDisplayFilter public-accepted="true"
+            private-accepted="true" protected-accepted="true"
+            default-accepted="true" static-accepted="false"/>
+        <MethodDisplayFilter public-accepted="true"
+            private-accepted="false" protected-accepted="false"
+            default-accepted="false" static-accepted="false"
+            accessors-accepted="false" constructors-accepted="false"/>
+    </Class>
+    <Class
+        name="com.alibaba.csp.sentinel.dashboard.rule.redis.RedisKeyPrefix"
+        x="1035" y="129">
+        <AttributesDisplayFilter public-accepted="true"
+            private-accepted="true" protected-accepted="true"
+            default-accepted="true" static-accepted="false"/>
+        <MethodDisplayFilter public-accepted="true"
+            private-accepted="false" protected-accepted="false"
+            default-accepted="false" static-accepted="false"
+            accessors-accepted="false" constructors-accepted="false"/>
+    </Class>
+    <Class
+        name="com.alibaba.csp.sentinel.dashboard.rule.redis.publisher.SystemRuleRedisPublisher"
+        x="20" y="271">
+        <AttributesDisplayFilter public-accepted="true"
+            private-accepted="true" protected-accepted="true"
+            default-accepted="true" static-accepted="false"/>
+        <MethodDisplayFilter public-accepted="true"
+            private-accepted="false" protected-accepted="false"
+            default-accepted="false" static-accepted="false"
+            accessors-accepted="false" constructors-accepted="false"/>
+        <Association
+            destinationClassName="com.alibaba.csp.sentinel.dashboard.rule.redis.IRedisPublisher"
+            endpointName="redisPublisher" kind="Simple"/>
+        <Communication destinationClassName="com.alibaba.csp.sentinel.dashboard.rule.redis.IRedisPublisher"/>
+    </Class>
+    <Class
+        name="com.alibaba.csp.sentinel.dashboard.rule.redis.publisher.ParamFlowRuleRedisPublisher"
+        x="-2" y="35">
+        <AttributesDisplayFilter public-accepted="true"
+            private-accepted="true" protected-accepted="true"
+            default-accepted="true" static-accepted="false"/>
+        <MethodDisplayFilter public-accepted="true"
+            private-accepted="false" protected-accepted="false"
+            default-accepted="false" static-accepted="false"
+            accessors-accepted="false" constructors-accepted="false"/>
+        <Association
+            destinationClassName="com.alibaba.csp.sentinel.dashboard.rule.redis.IRedisPublisher"
+            endpointName="redisPublisher" kind="Simple"/>
+        <Communication destinationClassName="com.alibaba.csp.sentinel.dashboard.rule.redis.IRedisPublisher"/>
+    </Class>
+    <Class
+        name="com.alibaba.csp.sentinel.dashboard.rule.redis.RedisPublisherImpl"
+        x="653" y="252">
+        <AttributesDisplayFilter public-accepted="true"
+            private-accepted="true" protected-accepted="true"
+            default-accepted="true" static-accepted="false"/>
+        <MethodDisplayFilter public-accepted="true"
+            private-accepted="false" protected-accepted="false"
+            default-accepted="false" static-accepted="false"
+            accessors-accepted="false" constructors-accepted="false"/>
+        <Extension destinationClassName="com.alibaba.csp.sentinel.dashboard.rule.redis.IRedisPublisher"/>
+    </Class>
+    <Class
+        name="com.alibaba.csp.sentinel.dashboard.rule.redis.publisher.AuthorityRuleRedisPublisher"
+        x="-34" y="195">
+        <AttributesDisplayFilter public-accepted="true"
+            private-accepted="true" protected-accepted="true"
+            default-accepted="true" static-accepted="false"/>
+        <MethodDisplayFilter public-accepted="true"
+            private-accepted="false" protected-accepted="false"
+            default-accepted="false" static-accepted="false"
+            accessors-accepted="false" constructors-accepted="false"/>
+        <Association
+            destinationClassName="com.alibaba.csp.sentinel.dashboard.rule.redis.IRedisPublisher"
+            endpointName="redisPublisher" kind="Simple"/>
+        <Communication destinationClassName="com.alibaba.csp.sentinel.dashboard.rule.redis.IRedisPublisher"/>
+    </Class>
+</ClassDiagram>

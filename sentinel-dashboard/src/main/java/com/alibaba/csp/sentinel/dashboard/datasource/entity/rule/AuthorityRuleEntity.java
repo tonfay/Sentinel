@@ -55,4 +55,12 @@ public class AuthorityRuleEntity extends AbstractRuleEntity<AuthorityRule> {
     public int getStrategy() {
         return rule.getStrategy();
     }
+    
+    public AuthorityRule toAuthorityRule() {
+    	AuthorityRule authorityRule = new AuthorityRule();
+    	authorityRule.setLimitApp(this.getLimitApp());
+    	authorityRule.setResource(this.getResource());
+    	authorityRule.setStrategy(this.getStrategy());
+    	return authorityRule;
+    }
 }

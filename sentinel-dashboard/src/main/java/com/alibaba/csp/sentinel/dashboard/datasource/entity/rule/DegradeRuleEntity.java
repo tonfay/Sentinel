@@ -155,4 +155,13 @@ public class DegradeRuleEntity implements RuleEntity {
         rule.setGrade(grade);
         return rule;
     }
+    public DegradeRule toDegradeRule() {
+        DegradeRule rule = new DegradeRule();
+        rule.setResource(resource);
+        rule.setLimitApp(limitApp);
+        rule.setCount(count);
+        rule.setTimeWindow(timeWindow);
+        rule.setGrade(grade);
+        return rule;
+    }
 }

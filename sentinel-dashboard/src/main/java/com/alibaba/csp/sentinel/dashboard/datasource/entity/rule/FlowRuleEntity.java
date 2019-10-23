@@ -245,5 +245,27 @@ public class FlowRuleEntity implements RuleEntity {
         flowRule.setClusterConfig(clusterConfig);
         return flowRule;
     }
+    
+    public FlowRule toFlowRule() {
+        FlowRule flowRule = new FlowRule();
+        flowRule.setCount(this.count);
+        flowRule.setGrade(this.grade);
+        flowRule.setResource(this.resource);
+        flowRule.setLimitApp(this.limitApp);
+        flowRule.setRefResource(this.refResource);
+        flowRule.setStrategy(this.strategy);
+        if (this.controlBehavior != null) {
+            flowRule.setControlBehavior(controlBehavior);
+        }
+        if (this.warmUpPeriodSec != null) {
+            flowRule.setWarmUpPeriodSec(warmUpPeriodSec);
+        }
+        if (this.maxQueueingTimeMs != null) {
+            flowRule.setMaxQueueingTimeMs(maxQueueingTimeMs);
+        }
+        flowRule.setClusterMode(clusterMode);
+        flowRule.setClusterConfig(clusterConfig);
+        return flowRule;
+    }
 
 }

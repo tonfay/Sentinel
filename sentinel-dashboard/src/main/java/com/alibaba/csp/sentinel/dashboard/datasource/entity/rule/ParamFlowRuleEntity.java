@@ -30,7 +30,7 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
  */
 public class ParamFlowRuleEntity extends AbstractRuleEntity<ParamFlowRule> {
 
-    public ParamFlowRuleEntity() {}
+	public ParamFlowRuleEntity() {}
 
     public ParamFlowRuleEntity(ParamFlowRule rule) {
         AssertUtil.notNull(rule, "Authority rule should not be null");
@@ -103,5 +103,19 @@ public class ParamFlowRuleEntity extends AbstractRuleEntity<ParamFlowRule> {
     @JsonIgnore
     public ParamFlowClusterConfig getClusterConfig() {
         return rule.getClusterConfig();
+    }
+    
+    public ParamFlowRule toParamFlowRule() {
+    	ParamFlowRule paramFlowRule = new ParamFlowRule();
+    	paramFlowRule.setCount(rule.getCount());
+    	paramFlowRule.setGrade(rule.getGrade());
+    	paramFlowRule.setLimitApp(rule.getLimitApp());
+    	paramFlowRule.setParamFlowItemList(rule.getParamFlowItemList());
+    	paramFlowRule.setParamIdx(rule.getParamIdx());
+    	paramFlowRule.setResource(rule.getResource());
+    	
+    	paramFlowRule.setClusterConfig(this.getClusterConfig());
+    	paramFlowRule.setClusterMode(this.isClusterMode());
+    	return paramFlowRule;
     }
 }

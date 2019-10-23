@@ -31,10 +31,12 @@ import com.alibaba.csp.sentinel.util.StringUtil;
 import com.alibaba.csp.sentinel.dashboard.datasource.entity.rule.DegradeRuleEntity;
 import com.alibaba.csp.sentinel.dashboard.domain.Result;
 import com.alibaba.csp.sentinel.dashboard.repository.rule.InMemDegradeRuleStore;
+import com.alibaba.csp.sentinel.dashboard.rule.DynamicRulePublisher;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.http.MediaType;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -56,6 +58,10 @@ public class DegradeController {
 
     @Autowired
     private AuthService<HttpServletRequest> authService;
+
+    @Autowired
+    @Qualifier("degradeRuleRedisPublisher")
+    private DynamicRulePublisher<List<DegradeRuleEntity>> rulePublisher;
 
     @ResponseBody
     @RequestMapping("/rules.json")
@@ -135,9 +141,14 @@ public class DegradeController {
             logger.error("add error:", throwable);
             return Result.ofThrowable(-1, throwable);
         }
-        if (!publishRules(app, ip, port)) {
-            logger.info("publish degrade rules fail after rule add");
-        }
+        try {
+			if (!publishRules(app, ip, port)) {
+			    logger.info("publish degrade rules fail after rule add");
+			}
+		}
+		catch (Exception e) {
+			return Result.ofThrowable(-1, e);
+		}
         return Result.ofSuccess(entity);
     }
 
@@ -187,9 +198,14 @@ public class DegradeController {
             logger.error("save error:", throwable);
             return Result.ofThrowable(-1, throwable);
         }
-        if (!publishRules(entity.getApp(), entity.getIp(), entity.getPort())) {
-            logger.info("publish degrade rules fail after rule update");
-        }
+        try {
+			if (!publishRules(entity.getApp(), entity.getIp(), entity.getPort())) {
+			    logger.info("publish degrade rules fail after rule update");
+			}
+		}
+		catch (Exception e) {
+			return Result.ofThrowable(-1, e);
+		}
         return Result.ofSuccess(entity);
     }
 
@@ -212,14 +228,21 @@ public class DegradeController {
             logger.error("delete error:", throwable);
             return Result.ofThrowable(-1, throwable);
         }
-        if (!publishRules(oldEntity.getApp(), oldEntity.getIp(), oldEntity.getPort())) {
-            logger.info("publish degrade rules fail after rule delete");
-        }
+        try {
+			if (!publishRules(oldEntity.getApp(), oldEntity.getIp(), oldEntity.getPort())) {
+			    logger.info("publish degrade rules fail after rule delete");
+			}
+		}
+		catch (Exception e) {
+			return Result.ofThrowable(-1, e);
+		}
         return Result.ofSuccess(id);
     }
 
-    private boolean publishRules(String app, String ip, Integer port) {
+    private boolean publishRules(String app, String ip, Integer port) throws Exception {
         List<DegradeRuleEntity> rules = repository.findAllByMachine(MachineInfo.of(app, ip, port));
-        return sentinelApiClient.setDegradeRuleOfMachine(app, ip, port, rules);
+//        return sentinelApiClient.setDegradeRuleOfMachine(app, ip, port, rules);
+        rulePublisher.publish(app, rules);
+        return true;
     }
 }

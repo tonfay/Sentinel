@@ -17,6 +17,7 @@
         <maven.compiler.target>1.8</maven.compiler.target>
         <spring.boot.version>2.0.5.RELEASE</spring.boot.version>
         <curator.version>4.0.1</curator.version>
+        <jedis.version>2.9.0</jedis.version>
     </properties>
 
     <dependencies>
@@ -136,6 +137,14 @@
         	<version>1.16.1</version>
         	<scope>test</scope>
         </dependency>
+		<dependency>
+			<groupId>redis.clients</groupId>
+			<artifactId>jedis</artifactId>
+			<version>${jedis.version}</version>
+			<scope>compile</scope>
+		</dependency>
+        <!--for Redis rule publisher sample-->
+        
     </dependencies>
 
     <build>

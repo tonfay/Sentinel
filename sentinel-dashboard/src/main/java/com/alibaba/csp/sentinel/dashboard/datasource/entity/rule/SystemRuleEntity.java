@@ -144,4 +144,13 @@ public class SystemRuleEntity implements RuleEntity {
         rule.setQps(qps);
         return rule;
     }
+    
+    public SystemRule toSystemRule() {
+        SystemRule rule = new SystemRule();
+        rule.setHighestSystemLoad(avgLoad);
+        rule.setAvgRt(avgRt);
+        rule.setMaxThread(maxThread);
+        rule.setQps(qps);
+        return rule;
+    }
 }
