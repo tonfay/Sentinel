@@ -18,6 +18,8 @@
         <spring.boot.version>2.0.5.RELEASE</spring.boot.version>
         <curator.version>4.0.1</curator.version>
         <jedis.version>2.9.0</jedis.version>
+        <!-- 本项目跳过deploy -->
+        <maven.deploy.skip>true</maven.deploy.skip>
     </properties>
 
     <dependencies>

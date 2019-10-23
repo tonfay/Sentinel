@@ -67,15 +67,16 @@
     </properties>
 
     <modules>
-        <module>sentinel-core</module>
+        <!-- <module>sentinel-core</module>
         <module>sentinel-extension</module>
         <module>sentinel-transport</module>
-        <module>sentinel-adapter</module>
+        <module>sentinel-adapter</module> -->
         <module>sentinel-dashboard</module>
 
-        <module>sentinel-demo</module>
+        <!-- <module>sentinel-demo</module>
         <module>sentinel-benchmark</module>
-        <module>sentinel-cluster</module>
+        <module>sentinel-cluster</module> -->
+        
     </modules>
 
     <dependencyManagement>
@@ -353,15 +354,17 @@
                 </plugins>
             </build>
             <distributionManagement>
-                <snapshotRepository>
-                    <id>oss</id>
-                    <url>https://oss.sonatype.org/content/repositories/snapshots/</url>
-                </snapshotRepository>
-                <repository>
-                    <id>oss</id>
-                    <url>https://oss.sonatype.org/service/local/staging/deploy/maven2/</url>
-                </repository>
-            </distributionManagement>
+				<repository>
+					<id>nexus-releases</id>
+					<name>project release repository</name>
+					<url>http://mvn.shouqiev.com:8099/nexus/content/repositories/releases</url>
+				</repository>
+				<snapshotRepository>
+					<id>nexus-snapshots</id>
+					<name>project snapshot repository</name>
+					<url>http://mvn.shouqiev.com:8099/nexus/content/repositories/snapshots</url>
+				</snapshotRepository>
+			</distributionManagement>
         </profile>
     </profiles>
 
