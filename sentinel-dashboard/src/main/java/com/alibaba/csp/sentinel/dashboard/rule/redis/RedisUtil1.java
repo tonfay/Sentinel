@@ -1,16 +1,18 @@
 package com.alibaba.csp.sentinel.dashboard.rule.redis;
 
 
+import com.alibaba.csp.sentinel.dashboard.config.DashboardConfig;
+
 import redis.clients.jedis.Jedis;
 import redis.clients.jedis.JedisPool;
 import redis.clients.jedis.JedisPoolConfig;
 
 public class RedisUtil1 {
 	//Redis服务器IP ,端口,密码
-    private static String ADDR = "172.17.10.14";
-    private static int PORT = 6379;
-    private static String AUTH="TestRedis2018";
-    private static int database = 1;
+    private static String ADDR = DashboardConfig.getRedisHost();
+    private static int PORT = Integer.parseInt(DashboardConfig.getRedisPort());
+    private static String AUTH = DashboardConfig.getRedisPassWord();
+    private static int database = Integer.parseInt(DashboardConfig.getRedisDatabase());
     //可连接的最大数目,默认值是8
     //如果赋值是-1,代表不限制,如果pool已经分配了maxActive个jedis实例
     //则此时pool的状态Wieexhausted(耗尽)

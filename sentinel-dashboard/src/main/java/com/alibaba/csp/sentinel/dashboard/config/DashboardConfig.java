@@ -66,6 +66,11 @@ public class DashboardConfig {
 
     private static final ConcurrentMap<String, Object> cacheMap = new ConcurrentHashMap<>();
     
+    public static final String CONFIG_REDIS1_HOST = "redis1.host";
+    public static final String CONFIG_REDIS1_PORT = "redis1.port";
+    public static final String CONFIG_REDIS1_PASSWORD = "redis1.password";
+    public static final String CONFIG_REDIS1_DATABASE = "redis1.database";
+    
     @NonNull
     private static String getConfig(String name) {
         // env
@@ -110,6 +115,20 @@ public class DashboardConfig {
         return val;
     }
 
+    public static String getRedisHost() {
+    	return getConfigStr(CONFIG_REDIS1_HOST);
+    }
+    public static String getRedisPort() {
+    	return getConfigStr(CONFIG_REDIS1_PORT);
+    }
+    public static String getRedisPassWord() {
+    	return getConfigStr(CONFIG_REDIS1_PASSWORD);
+    }
+    public static String getRedisDatabase() {
+    	return getConfigStr(CONFIG_REDIS1_DATABASE);
+    }
+    
+    
     public static String getAuthUsername() {
         return getConfigStr(CONFIG_AUTH_USERNAME);
     }
