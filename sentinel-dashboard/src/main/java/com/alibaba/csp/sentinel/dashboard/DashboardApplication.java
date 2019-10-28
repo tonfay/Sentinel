@@ -15,11 +15,12 @@
  */
 package com.alibaba.csp.sentinel.dashboard;
 
-import com.alibaba.csp.sentinel.init.InitExecutor;
-
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.context.annotation.ComponentScan;
+import org.springframework.context.annotation.Import;
+
+import com.alibaba.csp.sentinel.dashboard.config.RedisConfigProperties;
+import com.alibaba.csp.sentinel.init.InitExecutor;
 
 /**
  * Sentinel dashboard application.
@@ -27,7 +28,7 @@ import org.springframework.context.annotation.ComponentScan;
  * @author Carpenter Lee
  */
 @SpringBootApplication
-//@ComponentScan(value = "com.alibaba.csp.sentinel.dashboard")
+@Import(value = RedisConfigProperties.class)
 public class DashboardApplication {
 
     public static void main(String[] args) {
