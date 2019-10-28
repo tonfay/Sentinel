@@ -67,15 +67,15 @@
     </properties>
 
     <modules>
-        <module>sentinel-core</module>
+        <!-- <module>sentinel-core</module>
         <module>sentinel-extension</module>
         <module>sentinel-transport</module>
-        <module>sentinel-adapter</module>
+        <module>sentinel-adapter</module> -->
         <module>sentinel-dashboard</module>
 
-        <module>sentinel-demo</module>
+        <!-- <module>sentinel-demo</module>
         <module>sentinel-benchmark</module>
-        <module>sentinel-cluster</module>
+        <module>sentinel-cluster</module> -->
         
     </modules>
 
