@@ -29,11 +29,11 @@ import com.alibaba.csp.sentinel.init.InitExecutor;
  */
 @SpringBootApplication
 @Import(value = RedisConfigProperties.class)
-public class DashboardApplication {
+public class Application {
 
     public static void main(String[] args) {
         triggerSentinelInit();
-        SpringApplication.run(DashboardApplication.class, args);
+        SpringApplication.run(Application.class, args);
     }
 
     private static void triggerSentinelInit() {
